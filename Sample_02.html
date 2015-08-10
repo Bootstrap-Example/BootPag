@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Simple example</title>
+
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="js/jquery.bootpag.js"></script>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css"/>
+</head>
+<body>
+    <h3>Init with 5 pages. Change total to 10 on click</h3>
+
+    <div id="content">Dynamic Content goes here</div>
+    <div id="demo">Pagination goes here</div>
+
+    <script>
+        // init bootpag
+        $("#demo").bootpag({
+            total: 5
+        }). on("page", function(event, num) {
+            $("#content").html("Page: " + num);
+
+            // ..after content load --> change total to 10
+            $(this).bootpag({
+                total: 10,
+                maxVisible: 10
+            })
+        })
+    </script>
+</body>
+</html>

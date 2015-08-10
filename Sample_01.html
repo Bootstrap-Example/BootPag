@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>BootPag 测试</title>
+
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="js/jquery.bootpag.js"></script>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css"/>
+</head>
+<body>
+    <div id="content">Dynamic Content goes here</div>
+    <div id="page-selection">Pagination goes here</div>
+
+    <script>
+        // init bootpag
+        $("#page-selection").bootpag({
+            total: 10
+        }). on("page", function(event, num) {
+            $("#content").html("Insert content: " + num);
+        })
+    </script>
+</body>
+</html>

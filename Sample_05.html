@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Git example</title>
+
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <script src="js/jquery.bootpag.js"></script>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css"/>
+</head>
+<body>
+    <p id="content">Dynamic page content</p>
+    <p id="pagination-here"></p>
+
+    <script>
+        $("#pagination-here").bootpag({
+            total: 15,       // total pages
+            page: 1,        // default page
+//            leaps: true,     // next/prev leaps throw maxVisible 测试了一下, 不起作用, TMD
+            maxVisible: 5   // visible pagination
+        }).on("page", function(event, num) {
+            $("#content").html("Page" + num);   // or some ajax content loading...
+
+            // ..after content load --> change total to 10
+//            $(this).bootpag({
+//                total: 10,
+//                maxVisible: 10
+//            });
+        });
+    </script>
+</body>
+</html>
